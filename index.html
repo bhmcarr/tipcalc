@@ -7,15 +7,39 @@
 <body>
   <div class="main">
     <p>Enter bill total:</p>
+
     <form>
-      <input type="text" id="bill_input"><br>
+      <input type="text" id="bill_input">
+      <input type="radio" id="p20" name="percent" value="0.20">20%
+      <input type="radio" id="p18" name="percent" value="0.18">18%
+      <input type="radio" id="p15" name="percent" value="0.15">15%
     </form>
+    <button type="button" onlick="calcTip()" id="go_button">Go</button>
+
     <p id="output"></p>
   </div>
 </body>
 
 <script>
+  go_button.onclick = function calcTip(){
+    var bill_input = document.getElementById('bill_input').value;
+    var radio_input;
 
+    if (document.getElementById('p20').checked) {
+      radio_input = document.getElementById('p20').value;
+    } else if (document.getElementById('p18').checked) {
+      radio_input = document.getElementById('p18').value;
+    } else if (document.getElementById('p15').checked) {
+      radio_input = document.getElementById('p15').value;
+    }
+
+    var tip_amount = bill_input * radio_input;
+    tip_amount = tip_amount.toFixed(2);
+
+    document.getElementById("output").innerHTML = tip_amount;
+
+    return 0;
+  }
 </script>
 
 </html>
