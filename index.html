@@ -15,8 +15,8 @@
       <input type="radio" id="p15" name="percent" value="0.15">15%
     </form>
     <button type="button" onlick="calcTip()" id="go_button">Go</button>
-
-    <p id="output"></p>
+    <p>Tip Amount:</p>
+    <p id="output">[---]</p>
   </div>
 </body>
 
@@ -35,6 +35,7 @@
 
     var tip_amount = bill_input * radio_input;
     tip_amount = tip_amount.toFixed(2);
+    tip_amount = "$" + tip_amount;
 
     document.getElementById("output").innerHTML = tip_amount;
 
