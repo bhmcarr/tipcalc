@@ -30,3 +30,15 @@ go_button.onclick = function calcTip(){
   document.getElementById("output2").innerHTML = total_amount;
   return 0;
 }
+
+// bind enter key to "Go" button click
+$(document).keypress(function(e){
+  if (e.which == 13){
+      $("#go_button").click();
+  }
+});
+
+// bind enter key to "Go" button click
+$("#bill_input").submit(function(e){
+  $("#go_button").click();
+});
